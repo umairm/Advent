@@ -1,13 +1,14 @@
+
+#include "Platform.h"
+
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 #include <vulkan/vulkan.h>
 
 #include "Logger.h"
 #include "Engine.h"
-#include "Platform.h"
 
 namespace Advent {
-
 	Platform::Platform(Engine* engine, const char* applicationName) {
 		Logger::Trace("Initializing platform layer...");
 		_engine = engine;
@@ -24,19 +25,14 @@ namespace Advent {
 		if (_window) {
 			glfwDestroyWindow(_window);
 		}
-
 		glfwTerminate();
 	}
 
-	const bool Platform::StartGameLoop() {\
+	const bool Platform::StartGameLoop() {
 		while (!glfwWindowShouldClose(_window)) {
-
 			glfwPollEvents();
-
 			_engine->OnLoop(0);
-
 		}
-
 		return true;
 	}
 }

@@ -1,8 +1,10 @@
+#include"Logger.h"
+
 #include<stdarg.h>
 #include<stdio.h>
+
 #include<string>
 
-#include"Logger.h"
 #include"Defines.h"
 
 namespace Advent {
